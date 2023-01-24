@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="passwordExibition">
+
+    </div>
+    <input type="checkbox" value=1 name="upperLetter" id="upperLetter">
+    <label> Letras Maisculas</label>
+    <input type="checkbox" value=2 name="lowerLetter" id="lowerLetter">
+    <label> Letras Minusculas</label>
+    <input type="checkbox" value=3 name="number" id="number">
+    <label> Numero</label>
+    <input type="checkbox" value=4 name="chars" id="chars">
+    <label> Caracteres(.+-[]*~_@#:?)</label>
+    <br>
+    <label> Tamanho da Senha :</label>
+    <input type="number" name="passwordLenght" id="passwordLenght" min="4" value="4">
+    <input type="button" value="Gerar Senha" onclick="gerarSenha()">
+</body>
+<script>
+    var allCharsToPassword = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.+-[]*~_@#:?",
+    specialChars = ".+-[]*~_@#:?",
+    numbersChars = "0123456789",
+    upperCaseLettersChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    lowerCaseLettersChars = "abcdefghijklmnopqrstuvwxyz";
+    function gerarSenha() {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked'),
+            numberOfChars = document.getElementById("passwordLenght").value,
+            charsToCreatePassword = '',
+            finalPassword = '',
+
+            selectedsCheckboxes = Array.from(checkboxes).map(x => x.value)
+
+        selectedsCheckboxes.forEach(selectedCheck => {
+            switch (parseInt(selectedCheck)) {
+                case 1:
+                    charsToCreatePassword += allCharsToPassword.substring(0, 26)
+                    break;
+                case 2:
+                    charsToCreatePassword += allCharsToPassword.substring(26, 52)
+                    break;
+                case 3:
+                    charsToCreatePassword += allCharsToPassword.substring(52, 62)
+                    break;
+                case 4:
+                    charsToCreatePassword += allCharsToPassword.substring(62, 74)
+
+                    break;
+            }
+        });
+        charsToCreatePasswordLength = charsToCreatePassword.length
+        for (let index = 0; index < numberOfChars; index++) {
+
+            // console.log(charsToCreatePassword.charAt(Math.floor(Math.random() * charsToCreatePasswordLength)));
+            finalPassword += charsToCreatePassword.charAt(Math.floor(Math.random() * charsToCreatePasswordLength));
+        }
+        console.log({finalPassword});
+        isValid(finalPassword, selectedsCheckboxes)
+    }
+
+    function isValid(password, selectedCheckbox) {
+        console.log(specialChars.split(""));
+        selectedCheckbox.forEach(selectedCheck => {
+            switch (parseInt(selectedCheck)) {
+                case 1:
+                    if (!password.includes(upperCaseLettersChars.split(""))) {
+                        console.log("no");
+                    }
+                    break;
+                case 2:
+                    if (!password.includes(lowerCaseLettersChars.split(""))) {
+                        console.log("no");
+                    }
+                    break;
+                case 3:
+                    if (!password.includes(numbersChars.split(""))) {
+                        console.log("no");
+                    }
+                    break;
+                case 4:
+                    if (!password.includes(specialChars.split(""))) {
+                        console.log("no");
+                    }
+                    break;
+            }
+        })
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,12 @@
+
+body {
+    height: 100vh;
+    background-color: rgb(117, 117, 117);
+    color: white;
+    font-family: sans-serif;
+}
+.passwordExibition {
+    border: 1px solid red;
+    background-color: #ddd;
+    height: 50px;
+}
