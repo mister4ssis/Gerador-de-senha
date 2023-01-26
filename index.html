@@ -21,17 +21,16 @@
     <div class="checkboxOptions">
     
     <input type="checkbox" value=1 name="upperLetter" id="upperLetter">
-    <span> Letras Maisculas</span>
+    <span> Letras Maisculas(ABC)</span>
     <input type="checkbox" value=2 name="lowerLetter" id="lowerLetter">
-    <span> Letras Minusculas</span>
+    <span> Letras Minusculas(abc)</span>
     <input type="checkbox" value=3 name="number" id="number">
-    <span> Numero</span>
+    <span> Numero(123)</span>
     <input type="checkbox" value=4 name="chars" id="chars">
     <span> Caracteres(.+-[]*~_@#:?)</span>
 </div>
-    <span> Tamanho da Senha :</span>
-    
-    <input type="range" name="passwordLenght" id="passwordLenght" min="4" max="16" value="4" onchange="changePasswordLenght()">
+<label for="passwordLenght">Tamanho da senha: </label>
+<input type="range" id="passwordLenght" min="4" max="20" value="4" class="passwordLenght" onchange="changePasswordLenght()">
     <span id="valueOfPasswordLenght"> </span>
 </div>
     <input type="button" value="Gerar Senha" onclick="gerarSenha()" class="generatePassword">
