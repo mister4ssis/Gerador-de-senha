@@ -1,12 +1,99 @@
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*não permite selecionar o texto ao dar dois cliques */
+  }
 body {
     height: 100vh;
     background-color: rgb(117, 117, 117);
     color: white;
     font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.main {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    align-items: center;
+}
+h1 {
+    font-size: 60px;
 }
 .passwordExibition {
-    border: 1px solid red;
-    background-color: #ddd;
-    height: 50px;
+    width: 450px;
+    margin-top: 40px;
 }
+.passwordExibition input {
+    text-align: center;
+    color: white;
+    position: relative;
+    height: 60px;
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    margin: 15px 0 20px;
+    outline: none;
+    font-size: 24px;
+    padding: 0 20px;
+    letter-spacing: 2px;
+    border: 1px solid #ddd;
+  }
+
+  .passwordExibition input::placeholder {
+    letter-spacing: 0;
+  }
+
+  .checkboxOptions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.option {
+    display: flex;
+    justify-content: space-around
+}
+.selectOptions {
+    display: flex;
+    flex-direction: row;
+}
+.generatePassword {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.generatePassword:hover {
+    background-color: darkblue;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+}
+input[type="checkbox"] + span {
+    display: inline-block;
+    padding: 10px;
+    font-size: 16px;
+}
+
+input[type="checkbox"]:checked + span {
+    color: white;
+}
+input[type="number"] {
+    background-color: #f1f1f1;
+    color: #333;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    text-align: center;
+  }
