@@ -39,9 +39,7 @@ function gerarSenha() {
         // console.log(charsToCreatePassword.charAt(Math.floor(Math.random() * charsToCreatePasswordLength)));
         // finalPassword += charsToCreatePassword.charAt(Math.floor(Math.random() * charsToCreatePasswordLength));
     }
-    console.log({ finalPassword });
 
-    console.log(isValid(finalPassword, selectedsCheckboxes));
     if (!isValid(finalPassword, selectedsCheckboxes)) {
         finalPassword = ""
         gerarSenha()
